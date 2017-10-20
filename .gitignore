@@ -1,0 +1,7 @@
+/.metadata/
+*.classpath
+*.project
+*.prefs
+DSOFT1/bin/
+LABPROJ1/bin/
+SCOMRED/bin/
