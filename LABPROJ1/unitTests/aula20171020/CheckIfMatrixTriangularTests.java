@@ -43,6 +43,8 @@ public class CheckIfMatrixTriangularTests {
 	
 	@Test
 	public void testIsMatrixTriangular4() {
+
+
 		int[][] arr = {{1, 1, 1, 1, 1},
 					   {0, 1, 1, 1, 1},
 					   {0 ,0 ,1 ,1 ,1},
@@ -50,7 +52,18 @@ public class CheckIfMatrixTriangularTests {
 					   {1, 0, 0, 0, 1}};
 		
 		assertFalse(CheckIfMatrixTriangular.isMatrixTriangular(arr));
-
 	}
 	
+	@Test
+	public void testsUpperPartFilled() {
+
+		int[][] arr = {{1, 1, 1, 1, 1},
+					   {0, 1, 1, 1, 1},
+					   {0 ,0 ,1 ,1 ,1},
+					   {0, 0, 0, 1, 1},
+					   {0, 0, 0, 0, 1}};
+		
+		assertTrue(CheckIfMatrixTriangular.isMatrixTriangular(arr));
+	
+	}
 }

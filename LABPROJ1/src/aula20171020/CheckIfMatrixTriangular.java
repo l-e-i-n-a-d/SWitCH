@@ -1,5 +1,6 @@
 package aula20171020;
 
+
 public class CheckIfMatrixTriangular {
 
 	public static boolean isMatrixTriangular(int[][] arr) {
