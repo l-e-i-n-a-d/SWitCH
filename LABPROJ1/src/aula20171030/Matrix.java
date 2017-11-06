@@ -72,7 +72,6 @@ public class Matrix {
 		if (nlines != other.nlines)	return false;
 		return true;
 	}
-
 	
 	@Override
 	public String toString() {
