@@ -1,5 +1,9 @@
 package aula20171003;
 
+
+/**
+ * Declares a simple POJO of a contact class and creates a contact object.
+ */
 public class Contacto {
 	private String name;
 	private String number;
@@ -22,11 +26,11 @@ public class Contacto {
 	public void setNumber(String number) {
 		this.number = number;
 	}
-	
 	@Override
 	public String toString() {
 		return "Contacto [name=" + name + ", number=" + number + "]";
 	}
+	
 	public static void main(String[] args) {
 		Contacto c1 = new Contacto();
 		System.out.println(c1);

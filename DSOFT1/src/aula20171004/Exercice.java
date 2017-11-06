@@ -1,9 +1,10 @@
 package aula20171004;
 
-public class Exercice {
 
-	static int a = 2;
-	static int b = 4;
+/**
+ * Given two integer numbers, finds the biggest one.
+ */
+public class Exercice {
 
 	public static int max(int a, int b) {
 		if (a < b)
@@ -12,5 +13,4 @@ public class Exercice {
 			return a;
 		}
 	}
-
 }

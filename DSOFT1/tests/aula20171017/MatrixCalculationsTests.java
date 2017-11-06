@@ -7,24 +7,22 @@ import org.junit.Test;
 public class MatrixCalculationsTests {
 
 	@Test
-	public void testSum1() {
+	public void sumElementsInLineToArraySucess1() {
 		int[][] arr = new int[][] { { 1, 2, 3, 4 }, { 1, 2, 3, 4 }, { 1, 2, 3, 4 } };
-
-		assertArrayEquals(new int[] { 10, 10, 10 }, MatrixCalculations.Sum(arr));
+		assertArrayEquals(new int[] { 10, 10, 10 }, MatrixCalculations.sumElementsInLineToArray(arr));
 	}
 
 	@Test
-	public void testSum2() {
+	public void sumElementsInLineToArrayEmptyMatrix() {
 		int[][] arr = new int[][] { {} };
-
-		assertArrayEquals(new int[] { 0 }, MatrixCalculations.Sum(arr));
+		assertArrayEquals(new int[] { 0 }, MatrixCalculations.sumElementsInLineToArray(arr));
 	}
 
 	@Test
-	public void testSum3() {
+	public void sumElementsInLineToArrayNegatives() {
 		int[][] arr = new int[][] { { 1, 2 }, { 1, -2, 3 }, { 1, 2, 3, 4 } };
 
-		assertArrayEquals(new int[] { 3, 2, 10 }, MatrixCalculations.Sum(arr));
+		assertArrayEquals(new int[] { 3, 2, 10 }, MatrixCalculations.sumElementsInLineToArray(arr));
 	}
 
 	@Test

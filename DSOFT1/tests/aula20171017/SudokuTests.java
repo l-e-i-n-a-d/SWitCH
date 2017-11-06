@@ -7,7 +7,7 @@ import org.junit.Test;
 public class SudokuTests {
 
 	@Test
-	public void testCheckSudoku1() {
+	public void testisSudokuCorrect1() {
 		int[][] arrMatrix = new int[][] { { 2, 9, 5, 7, 4, 3, 8, 6, 1 }, { 4, 3, 1, 8, 6, 5, 9, 2, 7 },
 				{ 8, 7, 6, 1, 9, 2, 5, 4, 3 }, { 3, 8, 7, 4, 5, 9, 2, 1, 6 }, { 6, 1, 2, 3, 8, 7, 4, 9, 5 },
 				{ 5, 4, 9, 2, 1, 6, 7, 3, 8 }, { 7, 6, 3, 5, 2, 4, 1, 8, 9 }, { 9, 2, 8, 6, 7, 1, 3, 5, 4 },
@@ -17,19 +17,19 @@ public class SudokuTests {
 				{ 5, 1, 3, 7, 2, 8, 4, 6, 9 }, { 3, 6, 5, 2, 1, 4, 7, 9, 8 }, { 9, 2, 1, 6, 8, 7, 5, 3, 4 },
 				{ 7, 4, 8, 3, 9, 5, 6, 2, 1 } };
 
-		assertTrue(Sudoku.checkSudoku(arrMatrix));
-		assertTrue(Sudoku.checkSudoku(arr2));
+		assertTrue(Sudoku.isSudokuCorrect(arrMatrix));
+		assertTrue(Sudoku.isSudokuCorrect(arr2));
 
 	}
 
 	@Test
-	public void testCheckSudoku2() {
+	public void testisSudokuCorrectu2() {
 		int[][] arrMatrix = new int[][] { { 2, 9, 5, 7, 4, 3, 8, 6, 1 }, { 4, 3, 1, 8, 6, 5, 9, 2, 7 },
 				{ 8, 7, 6, 1, 9 }, { 3, 8, 7, 4, 5, 9, 2, 1, 6 }, { 6, 1, 2, 3, 8, 7, 4, 9, 5 },
 				{ 5, 4, 9, 2, 1, 6, 7, 3, 8 }, { 7, 6, 3, 5, 3, 4, 1, 8, 9 }, { 9, 2, 8, 6, 7, 1, 3, 5, 4 },
 				{ 1, 5, 4, 9, 3, 8, 6, 7, 2 } };
 
-		assertFalse(Sudoku.checkSudoku(arrMatrix));
+		assertFalse(Sudoku.isSudokuCorrect(arrMatrix));
 	}
 
 	@Test

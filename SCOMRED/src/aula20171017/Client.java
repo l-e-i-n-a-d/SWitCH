@@ -1,25 +1,16 @@
 package aula20171017;
 
-import java.net.InetAddress;
+import java.io.DataOutputStream;
 
 public class Client {
-	
-	
-	private String nickName;
-	private InetAddress tcp;
-	
-	public String getNickName() {
-		return nickName;
+
+	private DataOutputStream outS;
+
+	public Client(DataOutputStream outS) {
+		this.outS = outS;
 	}
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+
+	public DataOutputStream getOutS() {
+		return outS;
 	}
-	public InetAddress getTcp() {
-		return tcp;
-	}
-	public void setTcp(InetAddress tcp) {
-		this.tcp = tcp;
-	}
-	
-	
 }

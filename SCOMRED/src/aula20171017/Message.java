@@ -9,6 +9,10 @@ public class Message {
 	private int len;
 	private byte[] content;
 
+	/**
+	 * Class constructor that creates an Message object from reading a DataInputStream
+	 * @param inS DataInputStream from where the message is going to be read
+	 */
 	public Message(DataInputStream inS) {
 		try {
 			len = inS.read();
@@ -19,6 +23,10 @@ public class Message {
 		}
 	}
 	
+	/**
+	 * Class constructor that creates an Message object from reading a String
+	 * @param s String from where the message is going to be read
+	 */
 	public Message(String s) {
 		len = s.length();
 		content = s.getBytes();		
@@ -29,7 +37,7 @@ public class Message {
 	}
 
 	public boolean send(DataOutputStream outS) {
-		if (len > 0 || len > 255)
+		if (len < 0 || len > 255)
 			return false;
 		try {
 			outS.write(len);
@@ -45,6 +53,14 @@ public class Message {
 	public String getString() {
 		String s = new String(content, 0, len);	
 		return s;
+	}
+
+
+	public boolean isCommand() {
+		// if(this.getString().startsWith(".")) return true;
+		if(len < 1) return false;
+		if(content[0] == '.') return true;
+		return false;
 	}
 
 }

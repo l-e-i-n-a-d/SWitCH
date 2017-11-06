@@ -2,40 +2,40 @@ package aula20171017;
 
 public class MatrixCalculations {
 
-	public static int[] Sum(int[][] arr) {
+	public static int[] sumElementsInLineToArray(int[][] matrix) {
 
-		int[] arrSum = new int[arr.length];
+		int[] arrSum = new int[matrix.length];
 
-		for (int i = 0; i < arr.length; i++) {
-			for (int j = 0; j < arr[i].length; j++) {
-				arrSum[i] += arr[i][j];
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[i].length; j++) {
+				arrSum[i] += matrix[i][j];
 			}
 		}
 		return arrSum;
 	}
 
 	// Dada uma matriz e um vector, saber se todos os elementos do vector existem na
-	// matriz, independente/ da posiÃ§Ã£o
-	public static boolean ExistsInMatrix(int[] arrVector, int[][] arrMatrix) {
+	// matriz, independente/ da posição
+	public static boolean ExistsInMatrix(int[] vector, int[][] matrix) {
 
-		if (arrVector.length == 0) {
+		if (vector.length == 0) {
 			return false;
 		}
 		boolean b = false;
-		outter: for (int i = 0; i < arrMatrix.length; i++) {
-			inner: for (int j = 0; j < arrMatrix[i].length; j++) {
-				for (int k : arrVector) {
-					if (k == arrMatrix[i][j]) {
-						b = true;
-						break inner;
-					} else {
-						break outter;
-					}
-				}
+		outter: for (int i = 0; i < matrix.length; i++) {
+			inner: for (int j = 0; j < matrix[i].length; j++) {
+						for (int k : vector) {
+							if (k == matrix[i][j]) {
+								b = true;
+								break inner;
+							} else {
+								break outter;
+							}
+						}
 			}
 		}
 		return b;
 
 	}
-
+		
 }

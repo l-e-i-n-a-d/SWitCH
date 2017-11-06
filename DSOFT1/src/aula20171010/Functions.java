@@ -2,10 +2,13 @@ package aula20171010;
 
 public class Functions {
 
+/**
+ * Calculates the fatorial of a given integer number
+ * @param num integer number
+ * @return int fatorial number
+ */  
 	public static int fatorial(int num) throws Exception {
-
-		if (num < 0)
-			throw new Exception();
+		if (num < 0) throw new Exception();
 		int fact = 1;
 		for (int i = 1; i <= num; i++) {
 			fact *= i;
@@ -26,7 +29,7 @@ public class Functions {
 	}
 
 	public static int biggest(int a, int b, int c, int d) {
-		return biggest(biggest(a, b), biggest(c, d));
+		return biggest(biggest(a, b, c), biggest(c, d));
 	}
 
 	public static int biggest(int[] nums) {

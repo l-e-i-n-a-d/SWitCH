@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.security.spec.MGF1ParameterSpec;
 
 public class ThreadClient implements Runnable {
 
@@ -15,6 +16,7 @@ public class ThreadClient implements Runnable {
 
 	@Override
 	public void run() {
+		String nickname;
 		try {
 			DataOutputStream outS = new DataOutputStream(clisock.getOutputStream());
 			DataInputStream inS = new DataInputStream(clisock.getInputStream());
@@ -22,13 +24,18 @@ public class ThreadClient implements Runnable {
 			while (true) {
 				Message msg = new Message(inS);
 				if (msg.error()) {
-					clisock.close(); return; //return termina a thread
+					clisock.close();
+					return; // return thread ends
 				}
-				if(msg.isEmpty()) {
+				// QUESTION: if isEmpty why send outputstream
+				// ANSWER: When client wants to terminate conversation sends an empty msg
+				if (msg.isEmpty()) {
 					msg.send(outS);
-					clisock.close(); return;//return termina a thread
+					clisock.close();
+					return;// return thread ends
 				}
-				if (ClientList.add(msg.getString()))
+				nickname = msg.getString();
+				if (ClientList.add(nickname, outS))
 					break;
 				Message ko = new Message("KO");
 				ko.send(outS);
@@ -36,6 +43,27 @@ public class ThreadClient implements Runnable {
 
 			Message ok = new Message("OK");
 			ok.send(outS);
+
+			// client registered
+			while (true) {
+				Message msg = new Message(inS);
+				if (msg.error()) {
+					ClientList.delete(nickname);
+				    clisock.close();
+					return; // return thread ends
+				}
+				
+				if (msg.isEmpty()) {
+					msg.send(outS);
+					clisock.close();
+					return;// return thread ends
+				}
+				
+				if(!msg.isCommand()) {
+					Message wn = new Message("[" + nickname + "] " + msg.getString());
+					ClientList.sendToAll(wn);
+				}
+			}
 
 		} catch (IOException e) {
 			try {
